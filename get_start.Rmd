@@ -1,0 +1,59 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+```{r}
+library(devtools)
+packageVersion("devtools")
+library(tidyverse)
+library(fs)
+library(usethis)
+```
+
+# Create pkg
+```{r}
+# create_package("~/my_pkg/foofactors") 
+```
+
+# use git
+```{r}
+usethis::use_git()
+```
+this will create .git directory 
+```{r}
+fs::dir_info(all = T, regexp = ".git")
+```
+### Define function
+```{r}
+fbind <- function(a, b) {
+  factor(c(as.character(a), as.character(b)))
+}
+```
+
+```{r}
+simsum <- function(...){ sum(..., na.rm = T)}
+```
+
+### Create file to store function
+```{r}
+usethis::use_r("fbind")
+usethis::use_r("simsum")
+```
+
+### Load package
+```{r}
+devtools::load_all()
+```
+
+```{r}
+(a <- factor(c("character", "hits", "your", "eyeballs")))
+(b <- factor(c("but", "integer", "where it", "counts")))
+c(a,b)
+```
+
+```{r}
+library(foofactors)
+fbind(a,b)
+```
+
