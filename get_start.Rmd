@@ -1,5 +1,5 @@
 ---
-title: "R Notebook"
+title: "Package dev demo : foofactors"
 output: html_notebook
 ---
 
@@ -55,5 +55,6 @@ c(a,b)
 ```{r}
 library(foofactors)
 fbind(a,b)
+simsum(1,2) 
 ```
 
